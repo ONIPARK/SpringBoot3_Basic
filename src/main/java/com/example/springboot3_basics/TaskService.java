@@ -15,6 +15,11 @@ public class TaskService {
     }
 
     public Task createTask(String title, String description) {
+        // タイトルが空の場合、エラー
+        if (title == null || title.trim().isEmpty()) {
+            throw new IllegalArgumentException("Title cannot be empty");
+        }
+
         Task task = new Task(title, description, "TODO");
         return taskRepository.save(task);
     }

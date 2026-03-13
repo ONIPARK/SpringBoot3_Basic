@@ -5,9 +5,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
-
-
-
 @RestController
 public class HelloController {
     
@@ -33,7 +30,7 @@ public class HelloController {
         return "Name: " + name + ", Age: " + age;
     }
     @GetMapping("/search")
-    public String search(@RequestParam(value = "q", required = false) String query) {
+    public String search(@RequestParam(value = "q", required = false, defaultValue = "no query") String query) {
         return "Serach results for: " + query;
     }
     
